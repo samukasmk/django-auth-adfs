@@ -32,6 +32,7 @@ class AdfsBackend(ModelBackend):
         data = {
             'grant_type': 'authorization_code',
             'client_id': settings.CLIENT_ID,
+            'client_secret': settings.CLIENT_SECRET,
             'redirect_uri': provider_config.redirect_uri(request),
             'code': authorization_code,
         }

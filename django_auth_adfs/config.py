@@ -49,10 +49,9 @@ class Settings(object):
         self.USERNAME_CLAIM = "winaccountname"
 
         required_settings = [
-            "AUDIENCE",
+            "TENANT_ID",
             "CLIENT_ID",
-            "RELYING_PARTY_ID",
-            "USERNAME_CLAIM",
+            "CLIENT_SECRET",
         ]
 
         deprecated_settings = {
@@ -266,7 +265,6 @@ class ProviderConfig(object):
         query.update({
             "response_type": "code",
             "client_id": settings.CLIENT_ID,
-            "resource": settings.RELYING_PARTY_ID,
             "redirect_uri": self.redirect_uri(request),
             "state": redirect_to,
         })
